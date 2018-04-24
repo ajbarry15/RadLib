@@ -1,13 +1,28 @@
 require "sinatra"
-
 get "/" do
-  "This is the main page!"
+  erb :index
+end
+
+get "/views/index" do
+  erb :index
 end
 
 get "/upload" do
-  "This is where upload do"
+  erb :upload
 end
 
-__END__
+post "/upload" do
+  erb :uploadResults
+end
 
-<p>Hello</p>
+post "/uploadResults" do
+  erb :index
+end
+
+get "/:title" do
+  @title = params[:title]
+  @nouns = params[:noun]
+  @verbs = params[:verb]
+  @adjs = params[:adj]
+  erb :form
+end
