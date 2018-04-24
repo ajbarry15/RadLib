@@ -3,7 +3,7 @@ get "/" do
   erb :index
 end
 
-get "/views/index" do
+get "/index" do
   erb :index
 end
 
@@ -11,12 +11,8 @@ get "/upload" do
   erb :upload
 end
 
-post "/upload" do
-  erb :uploadResults
-end
-
-post "/uploadResults" do
-  erb :index
+get "/form" do
+  erb :form
 end
 
 get "/:title" do
