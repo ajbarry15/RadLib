@@ -1,9 +1,13 @@
 require "sinatra"
 
-get "/frank-says" do
-  "Put this in your pipe and smoke it!"
+get "/" do
+  "This is the main page!"
+end
+
+get "/upload" do
+  "This is where upload do"
 end
 
 __END__
 
-<p>Welcome<p>
+<p>Hello</p>
