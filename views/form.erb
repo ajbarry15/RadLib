@@ -1,0 +1,44 @@
+<head>
+  <title><%= @title%></title>
+</head>
+
+<% if File.exists?("uploads/" + @title + ".txt")
+	r = File.open("uploads/" + @title + ".txt", 'r')
+	story = r.read
+	r.close
+	nouns = 0
+	verbs= 0
+	advs = 0
+	parts = story.split(' ') %>
+	
+<% parts.each {|i|
+	i = i.chomp(",")
+	i = i.chomp(".")
+	if i == "[noun]"
+		nouns += 1
+	elsif i == "[verb]"
+		verbs += 1
+	elsif i == "[adj]"
+		adjs += 1
+	end
+}%>
+<% end%>
+
+<hr>
+<div class = "container text-center">
+<form action="/<%= @title%>" method="post">
+	<% for i in 1..nouns %>
+		<p>Noun: </p><input type="text" id = "textbox" name="noun[]">
+		</br>
+	<% end%>
+	<% for i in 1..verbs %>
+		<p>Verb: </p><input type="text" id = "textbox" name="verb[]">
+		</br>
+	<% end%>
+	<% for i in 1..adjs %>
+		<p>Adjective: </p><input type="text" id = "textbox" name="adj[]">
+		</br>
+	<% end%>
+	<input type="submit" id = "button">
+</form>
+</div>
