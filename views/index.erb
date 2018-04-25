@@ -2,14 +2,28 @@
 <html lang="en">
     <head>
         <title>MadLibs</title>
+        <link rel="stylesheet" href="/style.css">
     </head>
-            <div>
+  		<div class="container">
+            <div class="column text-center">
+                <div class="row">
+                    <h2 class="activeNav"><a class="navig" href="/">Home</a></h2>
+                </div>
+                <div class="row">
+                    <h2><a class="navig" href="/upload">Upload</a></h2>
+                </div>
 				<% files = Dir.entries("uploads/")%>
 				<% for i in 1..2%>
 					<% files.shift()%>
 				<% end%>
                 <% files.each { |file|%>
-					
-            </div>		
+					<div class="row">
+						<h2><a class="navig" href="/<%=file.chomp(".txt")%>"><%= file.chomp(".txt")%></a></h2>
+					</div>
+				<%}%>
+            </div>
+        </div>
+        <hr>
+		
     </body>
 </html>

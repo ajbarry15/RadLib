@@ -1,14 +1,18 @@
 <head>
     <title>Upload</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-_END_
-<% t=File.new(('uploads/' + params['myfile'][:filename]), "w") do |f|
-	tempf = File.open(params['myfile'][:tempfile], "r")
-	f.write(tempf.read)
-	tempf.close
-end
-t.close%>
-<hr>
-<div class = "container text-center">
-	<p>File uploaded successfully</p>
-</div>
+	<hr>
+	<div class = "container">
+		<div class = "row text-center">
+			<h1>File Uploader</h1>
+			<br>
+			<form action="/upload" method = "post" enctype = "multipart/form-data">
+				<input type = "file" id = "button" name = "myfile">
+				<br>
+				<input type = "submit" id = "button">
+			</form>
+		</div>
+	</div>
+</body>
+	
