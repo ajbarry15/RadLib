@@ -1,0 +1,46 @@
+<head>
+    <title><%= @title%></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<% r = File.open(("uploads/" + @title + ".txt"), 'r')
+story = r.read
+r.close
+
+nouns = 0
+plurals = 0
+verbs= 0
+adjs = 0
+advs = 0
+paver = 0
+
+parts = story.split(' ')
+parts.each {|i|
+	i = i.chomp(",")
+	i = i.chomp(".")
+	if i == "[noun]"
+		nouns += 1
+	elsif i == "[verb]"
+		verbs += 1
+	elsif i == "[adj]"
+		adjs += 1
+	end
+}
+
+for i in 1..nouns
+	story.sub!("[noun]",@nouns[i - 1])
+end
+for i in 1..verbs
+	story.sub!("[verb]",@verbs[i - 1])
+end
+for i in 1..adjs
+	story.sub!("[adj]",@adjs[i - 1])
+end%>
+
+<hr>
+<div class = "container">
+	<div class = "row text-center">
+		<p>
+			<%= story%>
+		</p>
+	</div>
+</div>
