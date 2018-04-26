@@ -1,17 +1,14 @@
 <head>
     <title><%= @title%></title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <% if File.exists?("uploads/" + @title + ".txt")
 	r = File.open("uploads/" + @title + ".txt", 'r')
 	story = r.read
 	r.close
 	nouns = 0
-	plurals = 0
 	verbs= 0
-	paver = 0
 	adjs = 0
-	advs = 0
 	parts = story.split(' ') %>
 	
 <% parts.each {|i|

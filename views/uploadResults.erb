@@ -1,11 +1,10 @@
 <head>
     <title>Upload</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="public/style.css">
 </head>
 <% t=File.new(('uploads/' + params['myfile'][:filename]), "w") do |f|
-	tempf = File.open(params['myfile'][:tempfile], "r")
+	tempf = params['myfile'][:tempfile]
 	f.write(tempf.read)
-	tempf.close
 end
 t.close%>
 <hr>
