@@ -13,7 +13,14 @@ get "/upload" do
 end
 
 post "/upload" do
+  f = File.new(("uploads/" + params[:myfile][:filename]), "w")
+  f.write(params[:myfile][:tempfile].read)
+  f.close
+  #   tempf = params[:myfile][:tempfile].read
+  #   f.write(tempf)
+  # end
   erb :uploadResults
+  # params[:myfile][:tempfile].read
 end
 
 post "/uploadResults" do

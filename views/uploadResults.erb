@@ -2,11 +2,7 @@
     <title>Upload</title>
     <link rel="stylesheet" href="public/style.css">
 </head>
-<% t=File.new(('uploads/' + params['myfile'][:filename]), "w") do |f|
-	tempf = params['myfile'][:tempfile]
-	f.write(tempf.read)
-end
-t.close%>
+
 <hr>
 <div class = "container text-center">
 	<p>File uploaded successfully</p>
